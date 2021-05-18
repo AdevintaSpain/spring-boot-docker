@@ -16,7 +16,13 @@
 
 From [3 ways to set up author information in Git](https://advancedweb.hu/3-ways-to-set-up-author-information-in-git/)
 ```
-git config commit.template .git-commit-template
+# Set 
+git config commit.template .gitmessage
+
+# Use
+git commit
+
+# Unset
 git config --unset commit.template
-``
+```
 
