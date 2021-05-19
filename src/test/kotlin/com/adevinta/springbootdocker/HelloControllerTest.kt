@@ -1,13 +1,12 @@
 package com.adevinta.springbootdocker
 
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito
 import org.mockito.Mockito.doReturn
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest
 import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.test.web.reactive.server.WebTestClient
+import org.springframework.test.web.reactive.server.expectBody
 
 @WebFluxTest(controllers = [HelloController::class])
 class HelloControllerTest {
@@ -26,10 +25,8 @@ class HelloControllerTest {
         webClient
                 .get().uri("/hello")
                 .exchange()
-                .expectStatus().is2xxSuccessful
-                .expectBodyList(String::class.java)
-                .consumeWith<WebTestClient.ListBodySpec<String>> {
-                    assertThat(it.responseBody?.get(0) ?: "xx").isEqualTo("Hello $version")
-                }
+                .expectStatus().isOk
+                .expectBody<String>()
+                .isEqualTo("Hello $version")
     }
 }

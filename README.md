@@ -14,7 +14,7 @@
   - Testcontainers (GenericContainer) ✅
   - New test source root "container-test" ✅
   
-- Use a database and redo previous steps 
+- Use a database and redo previous steps ✅
 
 ## Co-authored commits
 
