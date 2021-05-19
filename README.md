@@ -2,6 +2,12 @@
 
 [![CI](https://github.com/AdevintaSpain/spring-boot-docker/actions/workflows/gradle.yml/badge.svg)](https://github.com/AdevintaSpain/spring-boot-docker/actions/workflows/gradle.yml)
 
+Watch how this was made ...
+
+💜 [on Twitch](https://www.twitch.tv/videos/1028060859)
+
+❤️ [on YouTube](https://www.youtube.com/watch?v=gx99aHEszp0)
+
 ## To Do 
 
 - Create a Spring Boot Application with a simple RestController
