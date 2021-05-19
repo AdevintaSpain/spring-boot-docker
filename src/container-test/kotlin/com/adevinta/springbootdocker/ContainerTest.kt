@@ -7,7 +7,6 @@ import org.testcontainers.containers.GenericContainer
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 
-
 class KGenericContainer(imageName: String) : GenericContainer<KGenericContainer>(imageName)
 
 @Testcontainers
@@ -35,6 +34,6 @@ class ContainerTest {
                 .exchangeToMono { it.bodyToMono(String::class.java) }
                 .block()
 
-        assertThat(actual).isEqualTo("Hello Dani&Roger!")
+        assertThat(actual).isEqualTo("Hello Dani&Roger!!")
     }
 }

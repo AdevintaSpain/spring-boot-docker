@@ -25,6 +25,6 @@ class ApplicationTest {
                 .exchangeToMono { it.bodyToMono(String::class.java) }
                 .block()
 
-        assertThat(actual).isEqualTo("Hello Dani&Roger!")
+        assertThat(actual).isEqualTo("Hello Dani&Roger!!")
     }
 }

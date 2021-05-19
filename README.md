@@ -12,7 +12,8 @@
 
 - Test the docker image
   - Testcontainers (GenericContainer) ✅
-
+  - New test source root "container-test" ✅
+  
 - Use a database and redo previous steps 
 
 ## Co-authored commits

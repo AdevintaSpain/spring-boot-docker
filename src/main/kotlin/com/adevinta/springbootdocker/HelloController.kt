@@ -8,5 +8,5 @@ import reactor.core.publisher.Mono
 class HelloController {
 
     @GetMapping("/hello")
-    fun hello() = Mono.just("Hello Dani&Roger!")
+    fun hello() = Mono.just("Hello Dani&Roger!!")
 }
