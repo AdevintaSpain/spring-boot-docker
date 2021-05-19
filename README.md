@@ -1,5 +1,7 @@
 # Spring Boot with Docker
 
+[![CI](https://github.com/AdevintaSpain/spring-boot-docker/actions/workflows/gradle.yml/badge.svg)](https://github.com/AdevintaSpain/spring-boot-docker/actions/workflows/gradle.yml)
+
 ## To Do 
 
 - Create a Spring Boot Application with a simple RestController
