@@ -4,12 +4,14 @@
 
 - Create a Spring Boot Application with a simple RestController
   - Spring initialzr ✅
-
-- Test
+  - HelloController ✅
 
 - Build a docker image
+  - Dockerfile + docker build ❌
+  - bootBuildImage ✅
 
 - Test the docker image
+  - Testcontainers (GenericContainer) ✅
 
 - Use a database and redo previous steps 
 

@@ -8,7 +8,7 @@ import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.web.reactive.function.client.WebClient
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-class ApplicationTests {
+class ApplicationTest {
 
     @LocalServerPort
     private var port: Int = 0
@@ -25,6 +25,6 @@ class ApplicationTests {
                 .exchangeToMono { it.bodyToMono(String::class.java) }
                 .block()
 
-        assertThat(actual).isEqualTo("hello Dani&Roger!")
+        assertThat(actual).isEqualTo("Hello Dani&Roger!")
     }
 }

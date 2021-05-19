@@ -25,6 +25,9 @@ dependencies {
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
+
+	testImplementation("org.testcontainers:testcontainers:1.15.3")
+	testImplementation("org.testcontainers:junit-jupiter:1.15.3")
 }
 
 tasks.withType<KotlinCompile> {
@@ -36,4 +39,5 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+	dependsOn("bootBuildImage")
 }
