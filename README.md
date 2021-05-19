@@ -3,6 +3,7 @@
 ## To Do 
 
 - Create a Spring Boot Application with a simple RestController
+  - Spring initialzr ✅
 
 - Test
 
