@@ -12,7 +12,7 @@
 
 - Use a database and redo previous steps 
 
-## Co-authored commmits
+## Co-authored commits
 
 From [3 ways to set up author information in Git](https://advancedweb.hu/3-ways-to-set-up-author-information-in-git/)
 ```
