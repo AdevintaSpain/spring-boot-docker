@@ -27,7 +27,7 @@ class ContainerTest {
                 .withEnv("POSTGRES_DB", "mydb")
 
         @Container
-        var app: KGenericContainer = KGenericContainer("spring-boot-docker:0.0.1-SNAPSHOT")
+        var app: KGenericContainer = KGenericContainer(System.getProperty("docker.image"))
                 .withNetwork(network)
                 .dependsOn(postgres)
                 .withEnv("DB_HOST", postgresAlias)

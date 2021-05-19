@@ -46,7 +46,8 @@ tasks.withType<Test> {
 }
 
 testSets {
-    create("container-test")
+    val containerTest = create("container-test")
+    containerTest.systemProperty("docker.image", "${project.name}:${project.version}")
 }
 
 tasks["container-test"].dependsOn("bootBuildImage")
