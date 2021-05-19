@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.web.reactive.function.client.WebClient
 import org.testcontainers.containers.GenericContainer
+import org.testcontainers.containers.Network
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 
@@ -13,19 +14,30 @@ class KGenericContainer(imageName: String) : GenericContainer<KGenericContainer>
 class ContainerTest {
 
     companion object {
-        private const val port = 8080
+        private const val postgresAlias = "mypostgres"
+        private const val appPort = 8080
+        private val network: Network = Network.newNetwork()
+
+        @Container
+        var postgres: KGenericContainer = KGenericContainer("postgres:13")
+                .withNetwork(network)
+                .withNetworkAliases(postgresAlias)
+                .withEnv("POSTGRES_USER", "myuser")
+                .withEnv("POSTGRES_PASSWORD", "mypassword")
+                .withEnv("POSTGRES_DB", "mydb")
 
         @Container
         var app: KGenericContainer = KGenericContainer("spring-boot-docker:0.0.1-SNAPSHOT")
-                .withExposedPorts(port)
+                .withNetwork(network)
+                .dependsOn(postgres)
+                .withEnv("DB_HOST", postgresAlias)
+                .withExposedPorts(appPort)
     }
 
     @Test
     internal fun `should say hello again`() {
-        val mappedPort = app.getMappedPort(port)
-
         val webClient = WebClient.builder()
-                .baseUrl("http://localhost:$mappedPort")
+                .baseUrl("http://localhost:${app.getMappedPort(appPort)}")
                 .build()
 
         val actual = webClient
@@ -34,6 +46,6 @@ class ContainerTest {
                 .exchangeToMono { it.bodyToMono(String::class.java) }
                 .block()
 
-        assertThat(actual).isEqualTo("Hello Dani&Roger!!")
+        assertThat(actual).startsWith("Hello PostgreSQL 13")
     }
 }

@@ -17,7 +17,8 @@ repositories {
 }
 
 dependencies {
-    //implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    implementation("org.postgresql:postgresql:42.2.20")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
@@ -29,6 +30,8 @@ dependencies {
 
     testImplementation("org.testcontainers:testcontainers:1.15.3")
     testImplementation("org.testcontainers:junit-jupiter:1.15.3")
+
+
 }
 
 tasks.withType<KotlinCompile> {
